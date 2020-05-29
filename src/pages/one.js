@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components'
 import { Carousel, Input, Divider } from 'antd';
 import 'antd/dist/antd.css'
@@ -6,22 +6,29 @@ import Logo from '../images/logo.png'
 import bizi from '../images/bizi.jpg'
 import lian from '../images/lian.jpg'
 import yanjing from '../images/yanjing.jpg'
-import Activity_1 from '../images/Activity_1.jpg'
-import Activity_2 from '../images/Activity_2.jpg'
-import Activity_3 from '../images/Activity_3.jpg'
-import Activity_4 from '../images/Activity_4.jpg'
+import huanjing1 from '../images/huanjing1.png'
+import huanjing2 from '../images/huanjing2.png'
+import huanjing3 from '../images/huanjing3.png'
 
-import { SearchOutlined } from '@ant-design/icons';
+
+
+import { SearchOutlined, FormOutlined, UserOutlined, PhoneOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
 
 const OneWrapper = styled.div`
+@import './font/iconfont.css';
+
+background:#d9d9d9;
+width:100vw;
+box-sizing:border-box;
 .One_title{
+  background:#ffffff;
   color:#CBA794;
   display:flex;
   align-items:center;
-  padding: 10px;
-
+  padding: 10px 0;
+  box-sizing:border-box;
   img{
     width:36px;
     height:36px;
@@ -46,10 +53,14 @@ const OneWrapper = styled.div`
   }
 }
 .One_tabs{
+  background:#ffffff;
+  padding: 10px 0;
+    box-sizing:border-box;
   display:flex;
   align-items:center;
   width:100vw;
   padding:10px;
+  box-sizing:border-box;
   justify-content:center;
   ul,li{ padding:0;margin:0;list-style:none}
   ul{
@@ -68,22 +79,19 @@ const OneWrapper = styled.div`
       background:#CBA794;
       color:#ffffff;
       font-size:14px;
-
     }
   }
 }
 .One_carousel{
+  background:#ffffff;
+  padding: 10px 0;
+    box-sizing:border-box;
   img{
-    
     width:100vw;
-    /* height:160px; */
     background:no-repeat;
   }
   .ant-carousel .slick-slide {
   text-align: center;
-  /* height: 160px; */
-  /* line-height: 160px; */
-  /* background: #364d79; */
   overflow: hidden;
 }
 .ant-carousel .slick-dots-bottom {
@@ -91,15 +99,19 @@ const OneWrapper = styled.div`
 }
 }
 .One_search{
+  background:#ffffff;
+  padding: 10px 0;
+    box-sizing:border-box;
   display:flex;
   padding:10px;
- 
+  box-sizing:border-box;
   .ant-btn-primary{
     background:#CBA794;
     border:none;
   }
   .One_search_right{
     background:#CBA794;
+    text-align:center;
     width:80px;
     height:32px;
     color:#ffffff;
@@ -109,18 +121,20 @@ const OneWrapper = styled.div`
 }
 
 .One_xiangmu{
+  background:#ffffff;
+  padding: 10px 0;
+    box-sizing:border-box;
   ul,li{ padding:0;margin:0;list-style:none}
   ul{
     img{
-    
     width:100vw;
     height:80px;
-    /* background:no-repeat; */
   }
     li{
       display:flex;
       flex-direction:row-gap;
       padding: 10px;
+      box-sizing:border-box;
       img{
         width:64px;
         height:64px;
@@ -143,121 +157,330 @@ const OneWrapper = styled.div`
       }
     }
   }
+  .One_xiangmu_btm{
+display:flex;
+justify-content:center;
+color:#CBA794;
+  }
 }
 .Activity {
-    float: left;
-    width: 100%;
-    height: auto;
-    position: relative;
-    overflow: hidden;
-    .Activity_1 {
-    float: left;
-    width: 100%;
-    height: auto;
+  margin-top:3px;
+  background:#ffffff;
+  padding: 10px 0;
+    box-sizing:border-box;
+.Activity_title{
+  display:flex;
+  flex-direction:row;
+  img{
+        width:24px;
+        height:24px;
+        margin:10px;
+      }
+      span{
+        font-size:16px;
+        line-height:44px;
+      }
 }
-.h4 {
-    width: 24.6%;
-    position: absolute;
-    left: 12.8%;
-    font-size: 1.2em;
-    line-height: 3.4em;
-    margin: 0;
-    padding: 0;
+
+.Activity_conent{
+  display:flex;
+  flex-direction:column;
+  .Activity_conent_top{
+    display:flex;
+    flex-direction:row;
+    width:100vw;
+    .item{
+      display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:50px;
+    font-size:12px;
+    color:#ffffff;
+    margin:2px;
+
+    span{
+     text-align:center;
+   }
+    }
+    .Activity_conent_top_1{
+      width:40vw;
+      background:#ff4000;
+      height:50px;
+    }
+    .Activity_conent_top_2{
+      width:30vw;
+      background:#ec4a13;
+      height:50px;
+    }
+    .Activity_conent_top_3{
+      width:30vw;
+      background:#d95326;
+      height:50px;
+    }
+  }
+  .Activity_conent_bottom{
+    display:flex;
+    flex-direction:row;
+    width:100vw;
+    .item{
+      display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:50px;
+    font-size:12px;
+    color:#ffffff;
+    margin:2px;
+   span{
+     text-align:center;
+   }
+
+    }
+    .Activity_conent_bottom_1{
+      width:20vw;
+      background:#c65d39;
+    
+    }
+    .Activity_conent_bottom_2{
+      width:20vw;
+      background:#b3664d;
+      height:50px;
+    }
+    .Activity_conent_bottom_3{
+      width:30vw;
+      background:#9f7060;
+      height:50px;
+    }
+    .Activity_conent_bottom_4{
+      width:30vw;
+      background:#8c7973;
+      height:50px;
+    }
+  }
+
 }
-.f1 {
-    width: 35.4%;
-    position: absolute;
-    top: 21.6%;
-    text-align: center;
-    left: 6%;
-    font-size: .85em;
-    color: #fff;
-    font-weight: bold;
+
 }
-.f2 {
-    width: 33.4%;
-    position: absolute;
-    top: 21%;
-    left: 42%;
-    font-size: .85em;
-    text-align: center;
-    color: #fff;
-    font-weight: bold;
+.Environmental{
+  margin-top:3px;
+  background:#ffffff;
+  padding: 10px 0;
+    box-sizing:border-box;
+  .Environmental_title{
+  display:flex;
+  flex-direction:row;
+  img{
+        width:24px;
+        height:24px;
+        margin:10px;
+      }
+      span{
+        font-size:16px;
+        line-height:44px;
+      }
 }
-.f3 {
-    width: 33.4%;
-    position: absolute;
-    top: 27.6%;
-    left: 67.6%;
-    font-size: .85em;
-    text-align: center;
-    color: #fff;
-    font-weight: bold;
-    line-height: 2em;
-}
-.f4 {
-    width: 33.4%;
-    position: absolute;
-    top: 45.5%;
-    text-align: center;
-    left: 8%;
-    font-size: .85em;
-    color: #fff;
-    font-weight: bold;
-}
-.f5 {
-    width: 23.4%;
-    position: absolute;
-    top: 45.5%;
-    left: 47%;
-    font-size: .85em;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-}
-.f6 {
-    width: 20%;
-    position: absolute;
-    top: 66.5%;
-    left: 4%;
-    font-size: .75em;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-}
-.f7 {
-    width: 33.4%;
-    position: absolute;
-    top: 66.5%;
-    left: 18%;
-    font-size: .85em;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-}
-.f8 {
-    width: 23.4%;
-    position: absolute;
-    top: 66.5%;
-    left: 47.6%;
-    font-size: .85em;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-}
-.f9 {
-    width: 20%;
-    position: absolute;
-    top: 64.5%;
-    left: 75%;
-    font-size: .85em;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
+.Environmental_img{
+display:flex;
+flex-direction:row;
+.Environmental_img_left{
+  display:flex;
+flex-direction:column;
 }
 }
+}
+
+.characteristic{
+  margin-top:3px;
+  background:#ffffff;
+  padding: 10px 0;
+    box-sizing:border-box;
+  .characteristic_title{
+  display:flex;
+  flex-direction:row;
+  img{
+        width:24px;
+        height:24px;
+        margin:10px;
+      }
+      span{
+        font-size:16px;
+        line-height:44px;
+      }
+}
+.characteristic_img{
+  display:flex;
+  flex-direction:row;
+  .characteristic_img_item{
+    display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  }
+}
+
+}
+
+.Registered{
+  margin-top:3px;
+  background:#ffffff;
+  padding: 10px 0;
+    box-sizing:border-box;
+  .Registered_title{
+  display:flex;
+  flex-direction:row;
+  img{
+        width:24px;
+        height:24px;
+        margin:10px;
+      }
+      span{
+        font-size:16px;
+        line-height:44px;
+      }
+}
+.Registered_conent{
+  .Registered_input{
+    width:100vw;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-end;
+    align-items:center;
+    margin:10px 0;
+    padding-right:10px;
+    box-sizing:border-box;
+    Input{
+      width:calc(100vw - 20%);
+    }
+  }
+  .Registered_button{
+    width: 33%;
+height: 12%;
+margin-left: 43%;
+border-radius: 10px;
+border: none;
+background: #CBA794;
+color:#ffffff;
+cursor: pointer;
+text-align:center;
+  }
+}
+}
+
+.process{
+    margin-top:3px;
+    padding: 10px 0;
+    box-sizing:border-box;
+
+    background:#ffffff;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-around;
+ img{
+   width:24%;
+ }
+ .process_item{
+   display:flex;
+   width:24%;
+   flex-direction:column;
+   align-items:center;
+   justify-content:center;
+   background:#d9d9d9;
+   color:#ffffff;
+   font-size:12px;
+   height:50px;
+ }
+ .one{
+  border-radius: 3px 0 0 3px;
+
+ }
+ .four{
+  background:#CBA794;
+  border-radius:0 3px 3px 0;
+
+    }
+
+}
+
+.footer{
+    padding: 10px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:12px;
+  box-sizing:border-box;
+}
+
+.bottom{
+  float: left;
+  position:sticky;
+  bottom:0;
+  display:flex;
+  flex-direction:row;
+  height:50px;
+  .bottom_item{
+    display:flex;
+    background:#CBA794;
+    align-items:center;
+    justify-content:center;
+    padding:10px;
+    box-sizing:border-box;
+    img{
+      width:33.33%;
+    }
+
+  }
+  .one{
+    border-radius:2px 0 0 0;
+    background:#cc977d;
+    margin-right:2px;
+  }
+  .three{
+    border-radius:0 2px 0 0;
+    background:#dcb9a6;
+    margin-left:2px;
+
+  }
+  }
 `
+
 function One () {
+  const [bool, setBool] = useState(true);
+  const list = [
+    {
+      title: '眼部整形',
+      data: ['切开双眼皮', '开眼角', '祛眼袋', '双眼皮修复']
+    },
+    {
+      title: '鼻部整形',
+      data: ['假体隆鼻', '玻尿酸隆鼻', '综合隆鼻', '鼻修复']
+    },
+    {
+      title: '胸部整形',
+      data: ['隆胸失败修复', '自体脂肪隆胸', '假体隆胸', '乳房下垂']
+    },
+    {
+      title: '瘦身塑形',
+      data: ['水动力吸脂', '腰腹吸脂', '腿部吸脂', '面部吸脂']
+    },
+    {
+      title: '美白嫩肤',
+      data: ['补水美白', '激光美白', '果酸焕肤', '光子嫩肤']
+    },
+    {
+      title: '祛痘',
+      data: ['综合祛痘', '果酸祛痘', '粉刺黑头', '祛痘印抗痘']
+    },
+    {
+      title: '抗衰老',
+      data: ['射频紧致', '蛋白线提升', '光电抗衰']
+    },
+    {
+      title: '面部除皱',
+      data: ['祛抬头纹', '祛川字纹', '祛鱼尾纹', '祛法令纹']
+    },
+  ]
+  const xiangmu = bool ? list.slice(0, 4) : list
   return (
     <OneWrapper>
       <div className="One_title">
@@ -269,7 +492,9 @@ function One () {
       </div>
       <div className="One_tabs">
         <ul>
-          <li>我要挂号</li>
+          <li>
+            <i className="iconfont icon-info"></i>
+            我要挂号</li>
           <li>医院简介</li>
           <li>医疗项目</li>
           <li>医疗团队</li>
@@ -302,114 +527,152 @@ function One () {
 
       <div className="One_xiangmu">
         <ul>
-          <li>
-            <img src={Logo} alt="" />
-            <div className="One_xiangmu_right">
-              <div className="One_xiangmu_right_title">鼻子</div>
-              <div className="One_xiangmu_right_btm">
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-
+          {xiangmu.map(item => {
+            return <li>
+              <img src={Logo} alt="" />
+              <div className="One_xiangmu_right">
+                <div className="One_xiangmu_right_title">{item.title}</div>
+                <div className="One_xiangmu_right_btm">
+                  {item.data.map(i => {
+                    return <span><Divider type="vertical" />{i}</span>
+                  })}
+                  <span style={{ color: '#cba794' }}><Divider type="vertical" />更多+</span>
+                </div>
               </div>
-            </div>
-          </li>
-
-
-          <li>
-            <img src={Logo} alt="" />
-            <div className="One_xiangmu_right">
-              <div className="One_xiangmu_right_title">鼻子</div>
-              <div className="One_xiangmu_right_btm">
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-
-              </div>
-            </div>
-          </li>
-          <img src={yanjing} alt=""></img>
-          <li>
-            <img src={Logo} alt="" />
-            <div className="One_xiangmu_right">
-              <div className="One_xiangmu_right_title">鼻子</div>
-              <div className="One_xiangmu_right_btm">
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <img src={Logo} alt="" />
-            <div className="One_xiangmu_right">
-              <div className="One_xiangmu_right_title">鼻子</div>
-              <div className="One_xiangmu_right_btm">
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-                <span><Divider type="vertical" />555</span>
-
-              </div>
-            </div>
-          </li>
+            </li>
+          })}
+          {/* <img src={yanjing} alt=""></img> */}
         </ul>
+        <div className="One_xiangmu_btm" onClick={() => { setBool(!bool) }}>{bool ? "查看更多" : '收起'}</div>
       </div>
 
 
-      <div class="Activity">
-        <img class="Activity_1" src={Activity_1} width="100%" height="70" alt="" />
-        <img class="Activity_2" src={Activity_2} width="100%" height="70" alt="" />
-        <img class="Activity_3" src={Activity_3} width="100%" height="80" alt="" />
-        <img class="Activity_4" src={Activity_4} width="100%" height="100" alt="" />
-        <h4 onclick="window.location.href=''">本月优惠</h4>
-        <span class="f1" onclick="window.location.href='http://lut.zoosnet.net/LR/Chatpre.aspx?id=LUT97590366'" target="_blank">   68元<br />轻舒妇科检查套餐</span>
-        <span class="f2" onclick="window.location.href='http://lut.zoosnet.net/LR/Chatpre.aspx?id=LUT97590366'" target="_blank">  310元<br />性激素6项检查</span>
-        <span class="f3" onclick="window.location.href='http://lut.zoosnet.net/LR/Chatpre.aspx?id=LUT97590366'" target="_blank">  180元<br />产前优生<br />4项检查</span>
-        <span class="f4" onclick="window.location.href='http://lut.zoosnet.net/LR/Chatpre.aspx?id=LUT97590366'" target="_blank">  5900元起<br />分娩套餐</span>
-        <span class="f5" onclick="window.location.href='http://lut.zoosnet.net/LR/Chatpre.aspx?id=LUT97590366'" target="_blank"> 30元<br />胎心监测/次</span>
-        <span class="f6" onclick="window.location.href='http://lut.zoosnet.net/LR/Chatpre.aspx?id=LUT97590366'" target="_blank">180元<br />人流优惠劵</span>
-        <span class="f7" onclick="window.location.href='http://lut.zoosnet.net/LR/Chatpre.aspx?id=LUT97590366'" target="_blank"> 178元<br />唐氏筛查</span>
-        <span class="f8" onclick="window.location.href='http://lut.zoosnet.net/LR/Chatpre.aspx?id=LUT97590366'" target="_blank">58元<br />早孕检查套餐</span>
-        <span class="f9" onclick="window.location.href='http://lut.zoosnet.net/LR/Chatpre.aspx?id=LUT97590366'" target="_blank">四维彩超<br />立减<br />100元</span>
+      <div className="Activity">
+        <div className="Activity_title">
+          <img src={Logo} alt="" /><span>本月优惠</span>
+        </div>
+        <div className="Activity_conent">
+          <div className="Activity_conent_top">
+            <div className="Activity_conent_top_1 item"> <span  >  88元<br />面部检测</span></div>
+            <div className="Activity_conent_top_2 item"><span  >1680元起<br />玻尿酸填充</span></div>
+            <div className="Activity_conent_top_3 item"><span  >3800元起<br />基础双眼皮</span> </div>
 
+          </div>
+          <div className="Activity_conent_bottom">
+            <div className="Activity_conent_bottom_1 item"> <span  > 3580元起<br />祛眼袋</span></div>
+            <div className="Activity_conent_bottom_2 item"> <span  > 168元<br />面部护理</span></div>
+            <div className="Activity_conent_bottom_3 item"><span  >68元<br />冰点脱毛</span></div>
+            <div className="Activity_conent_bottom_4 item"> <span  >4800元起<br />假体隆鼻</span></div>
+
+          </div>
+        </div>
+
+
+      </div>
+
+      <div className="Environmental ">
+        <div className="Environmental_title">
+          <img src={Logo} alt="" /><span>本月优惠</span>
+        </div>
+        <div className="Environmental_img">
+          <div className="Environmental_img_left">
+            <img class="huanjing1" src={huanjing1} width="100%" alt="" />
+            <img class="huanjing2" src={huanjing2} width="100%" alt="" />
+          </div>
+          <img class="huanjing3" src={huanjing3} width="50%" alt="" />
+        </div>
+      </div>
+
+
+      <div className="characteristic ">
+        <div className="characteristic_title">
+          <img src={Logo} alt="" /><span>本月优惠</span>
+        </div>
+        <div className="characteristic_img">
+          <div className="characteristic_img_item">
+            <img class="huanjing1" src={huanjing1} width="90%" alt="" />
+            <span>国际认证</span>
+          </div>
+          <div className="characteristic_img_item">
+            <img class="huanjing2" src={huanjing2} width="90%" alt="" />
+            <span>国际认证</span>
+          </div>
+          <div className="characteristic_img_item">
+            <img class="huanjing2" src={huanjing2} width="90%" alt="" />
+            <span>国际认证</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="Registered">
+        <div className="Registered_title">
+          <img src={Logo} alt="" /><span>本月优惠</span>
+        </div>
+        <div className="Registered_conent">
+          <div className="Registered_input"><span>姓名：</span>
+            <Input placeholder="请填写你的姓名" style={{ width: "70%" }} prefix={<UserOutlined />} />
+          </div>
+          <div className="Registered_input"><span>电话：</span>
+            <Input placeholder="请填写你的电话" style={{ width: "70%" }} prefix={<PhoneOutlined />} />
+          </div>
+          <div className="Registered_input"><span>描述病情：</span>
+            <Input placeholder="请描述你的病情" style={{ width: "70%" }} prefix={<FormOutlined />} />
+          </div>
+          <div className="Registered_button">提交预约挂号 </div>
+
+        </div>
+      </div>
+
+
+      <div className="process">
+        <div className="process_item one">
+          <img src={Logo} alt="" />
+          <span>在线预约</span>
+        </div>
+        <div className="process_item">
+          <img src={Logo} alt="" />
+          <span>在线预约</span>
+        </div>
+        <div className="process_item">
+          <img src={Logo} alt="" />
+          <span>在线预约</span>
+        </div>
+
+        {/* <img src={Registered_24} alt="" /> */}
+        <div className="process_item four">
+          <img src={Logo} alt="" />
+          <span>在线预约</span>
+        </div>
+      </div>
+
+      <div className="footer">
+        <p>
+          到院咨询，更多优惠
+        <br />
+       在线预约：19970052769
+       <br />
+       地址：南昌市湖滨南路36号
+       <br />
+        门诊时间：9:30-17:30（节假日不休）
+        </p>
+      </div>
+
+      <div className="bottom">
+        <div className="bottom_item one">
+          <img src={Logo} alt="" />
+
+          拨打电话
+        </div>
+        <div className="bottom_item">
+          <img src={Logo} alt="" />
+
+          我要提问
+        </div>
+        <div className="bottom_item three">
+          <img src={Logo} alt="" />
+          首页
+        </div>
       </div>
     </OneWrapper>
   );
