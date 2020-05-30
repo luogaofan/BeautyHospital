@@ -1,12 +1,12 @@
-import React from 'react';
-import './App.css';
-import One from './pages/one'
+import React from "react";
+import "./App.css";
+import Home from "./pages/home";
+import "./assets/fonts/iconfont.css";
 
-
-function App () {
+function App() {
   return (
     <div className="App">
-      <One />
+      <Home />
     </div>
   );
 }
