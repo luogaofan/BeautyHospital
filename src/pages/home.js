@@ -529,7 +529,7 @@ function Home() {
       data: ["祛抬头纹", "祛川字纹", "祛鱼尾纹", "祛法令纹"],
     },
   ];
-  console.log('hhhh')
+  console.log('hhjjjhh')
   const xiangmu = bool ? list.slice(0, 4) : list;
   return (
     <HomeWrapper>
